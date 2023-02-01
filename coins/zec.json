@@ -69,5 +69,8 @@
     },
     "poolOptions": {
         "confirmations": 100
-    }
+    },
+
+    "hasGetInfo": true,
+    "_comment_hasGetInfo": "required to use Zebra RPCs"
 }
