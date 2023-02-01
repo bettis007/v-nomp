@@ -34,17 +34,17 @@ Note: the website will log an RPC error even when disabled, this seems like a `s
 
 Install dependencies:
 1. Install a statically compiled `boost` and `icu`
-2. Optional: install the CUDA GPU mining libraries: https://github.com/ZclassicDev/GCEQminer#general-instructions
+2. Optional: install static CUDA GPU mining libraries: https://github.com/ZclassicDev/GCEQminer#general-instructions
 
 Install miner:
-1. `git clone https://github.com/teor2345/GCEQminer`
-2. `cd GCEQminer`
+1. `git clone https://github.com/teor2345/nheqminer`
+2. `cd nheqminer`
 3. Use the Zebra fixes: `git checkout zebra-mining`
-4. Follow the build instructions: https://github.com/ZclassicDev/GCEQminer#linux
+4. Follow the build instructions: https://github.com/nicehash/nheqminer#general-instructions
 ```sh
 mkdir build && cd build
-# if you have CUDA installed, you can leave USE_CUDA_TROMP on 
-cmake -DUSE_CUDA_TROMP=OFF ..
+# if you have CUDA installed, you can leave USE_CUDA_DJEZO on 
+cmake -DUSE_CUDA_DJEZO=OFF ..
 make -j $(nproc)
 ```
 
