@@ -48,6 +48,13 @@ cmake -DUSE_CUDA_TROMP=OFF ..
 make -j $(nproc)
 ```
 
+Run miner:
+1. Follow the run instructions at: https://github.com/ZclassicDev/GCEQminer#run-instructions
+```sh
+# or use your testnet address here
+./nheqminer -l 127.0.0.1:1234 -u tmRGc4CD1UyUdbSJmTUzcB6oDqk4qUaHnnh.worker1 -t 1
+```
+
 ## TODO
 
 Do we want to fix the missing or incorrect values in the `s-nomp` stats logs?
