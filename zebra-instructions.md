@@ -1,11 +1,14 @@
-# How to run s-nomp with Zebra
+# How to mine with Zebra on testnet
+
+## Install and run a mining pool
 
 Install dependencies:
 1. Install `redis` and run it on the default port: https://redis.io/docs/getting-started/
 2. Install and activate `nodenv`: https://github.com/nodenv/nodenv#installation
+3. Install `boost` and `libsodium`
 
 Install `s-nomp`:
-1. Clone https://github.com/teor2345/s-nomp/tree/zebra-mining
+1. `git clone https://github.com/teor2345/s-nomp`
 2. `cd s-nomp`
 3. Use the Zebra configs: `git checkout zebra-mining`
 4. Use node 8.17.0:
@@ -27,7 +30,26 @@ Run `s-nomp`:
 
 Note: the website will log an RPC error even when disabled, this seems like a `s-nomp` bug
 
-TODO:
+## Install a CPU or GPU miner
+
+Install dependencies:
+1. Install a statically compiled `boost` and `icu`
+2. Optional: install the CUDA GPU mining libraries: https://github.com/ZclassicDev/GCEQminer#general-instructions
+
+Install miner:
+1. `git clone https://github.com/teor2345/GCEQminer`
+2. `cd GCEQminer`
+3. Use the Zebra fixes: `git checkout zebra-mining`
+4. Follow the build instructions: https://github.com/ZclassicDev/GCEQminer#linux
+```sh
+mkdir build && cd build
+# if you have CUDA installed, you can leave USE_CUDA_TROMP on 
+cmake -DUSE_CUDA_TROMP=OFF ..
+make -j $(nproc)
+```
+
+## TODO
+
 Do we want to fix the missing or incorrect values in the `s-nomp` stats logs?
 ```
 Network Connected:      Mainnet - missing or incorrect RPC, or config issue?
