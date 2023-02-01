@@ -58,19 +58,3 @@ Run miner:
 # or use your testnet address here
 ./nheqminer -l 127.0.0.1:1234 -u tmRGc4CD1UyUdbSJmTUzcB6oDqk4qUaHnnh.worker1 -t 1
 ```
-
-## TODO
-
-Do we want to fix the missing or incorrect values in the `s-nomp` stats logs?
-```
-Network Connected:      Mainnet - missing or incorrect RPC, or config issue?
-Detected Reward Type:   POW
-Current Block Height:   2212372
-Current Block Diff:     0.050878195
-Current Connect Peers:  undefined - missing getpeers RPC field?
-Network Difficulty:     NaN - missing getdifficulty? RPC
-Network Hash Rate:      0.00 KH - missing RPC?
-Stratum Port(s):        1234
-Pool Fee Percent:       0.2%
-Block polling every:    500 ms
-```
