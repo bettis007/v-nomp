@@ -5,6 +5,11 @@
 
 This is a Equihash mining pool based off Node Open Mining Portal.
 
+# IMPORTANT
+
+This fork does not pay any pool fees, because `s-nomp/node-stratum-pool` does not support Zcash NU5 transactions.
+Instead, all fees are paid to the address in the node configuration.
+
 #### Production Usage Notice
 This is beta software. All of the following are things that can change and break an existing s-nomp setup: functionality of any feature, structure of configuration files and structure of redis data. If you use this software in production then *DO NOT* pull new code straight into production usage because it can and often will break your setup and require you to tweak things like config files or redis data. *Only tagged releases are considered stable.*
 
