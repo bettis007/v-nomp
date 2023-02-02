@@ -1,8 +1,11 @@
 # How to mine with Zebra on testnet
 
-`s-nomp` has not been updated for NU5, so these instructions will get you an error like:
 
-> 2023-02-01T06:26:32.873143Z  INFO zebra_rpc::methods::get_block_template_rpcs: submit block failed error=Ok(Block { source: Transaction(CoinbaseExpiryBlockHeight { expiry_height: None, block_height: Height(2212538), transaction_hash: transaction::Hash("de0eaaec7ed09500da395f6def5d14b173b57f4f331874fd6703753fbb933346") }) }) block_height="2212538"
+## Important
+
+`s-nomp` has not been updated for NU5, so you'll need the fixes in the branches below.
+
+These fixes disable mining pool operator payments, or miner payments: they just pay to the address configured for the node.
 
 ## Install and run a mining pool
 
