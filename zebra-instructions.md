@@ -5,7 +5,7 @@
 
 `s-nomp` has not been updated for NU5, so you'll need the fixes in the branches below.
 
-These fixes disable mining pool operator payments, or miner payments: they just pay to the address configured for the node.
+These fixes disable mining pool operator payments and miner payments: they just pay to the address configured for the node.
 
 ## Install and run a mining pool
 
