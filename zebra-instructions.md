@@ -12,7 +12,7 @@ These fixes disable mining pool operator payments and miner payments: they just 
 Install dependencies:
 1. Install `redis` and run it on the default port: https://redis.io/docs/getting-started/
 2. Install and activate `nodenv`: https://github.com/nodenv/nodenv#installation
-3. Install `boost` and `libsodium`
+3. Install `boost` and `libsodium` development libraries
 
 Install `s-nomp`:
 1. `git clone https://github.com/teor2345/s-nomp`
@@ -33,9 +33,10 @@ npm install
 
 Run `s-nomp`:
 1. Edit `pool_configs/zclassic.json` so it has your Zebra port
-2. Run `s-nomp` using `npm start`
+    - TODO: change the pool name to `zcash.json`, does this work? 
+3. Run `s-nomp` using `npm start`
 
-Note: the website will log an RPC error even when disabled, this seems like a `s-nomp` bug
+Note: the website will log an RPC error even when it is disabled in the config. This seems like a `s-nomp` bug.
 
 ## Install a CPU or GPU miner
 
@@ -56,7 +57,7 @@ make -j $(nproc)
 ```
 
 Run miner:
-1. Follow the run instructions at: https://github.com/ZclassicDev/GCEQminer#run-instructions
+1. Follow the run instructions at: https://github.com/nicehash/nheqminer#run-instructions
 ```sh
 # or use your testnet address here
 ./nheqminer -l 127.0.0.1:1234 -u tmRGc4CD1UyUdbSJmTUzcB6oDqk4qUaHnnh.worker1 -t 1
