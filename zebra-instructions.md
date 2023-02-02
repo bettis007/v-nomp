@@ -44,7 +44,8 @@ Run `s-nomp`:
 1. Edit `pool_configs/zclassic.json` so it has your Zebra port
     - TODO: change the pool name to `zcash.json`, does this work?
 2. Optional: update the pool config with your testnet transparent P2PKH address
-3. Run `s-nomp` using `npm start`
+    - TODO: use the ZF testnet address `t27eWDgjFYJGVXmzrXeVjnb5J3uXDM9xH9v` by default
+4. Run `s-nomp` using `npm start`
 
 Note: the website will log an RPC error even when it is disabled in the config. This seems like a `s-nomp` bug.
 
