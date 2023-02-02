@@ -41,7 +41,7 @@ Note: the website will log an RPC error even when disabled, this seems like a `s
 
 Install dependencies:
 1. Install a statically compiled `boost` and `icu`
-2. Optional: install static CUDA GPU mining libraries: https://github.com/ZclassicDev/GCEQminer#general-instructions
+2. Optional: install static CUDA GPU mining libraries: https://github.com/nicehash/nheqminer#linux
 
 Install miner:
 1. `git clone https://github.com/teor2345/nheqminer`
