@@ -1,6 +1,5 @@
 # How to mine with Zebra on testnet
 
-
 ## Important
 
 `s-nomp` has not been updated for NU5, so you'll need the fixes in the branches below.
@@ -11,10 +10,10 @@ These fixes disable mining pool operator payments and miner payments: they just 
 
 1. TODO: link to Zebra install instructions
 2. Configure `zebrad.toml`:
-    a. change the `network.network` config to `Testnet`
-    b. add your testnet transparent address in `mining.miner_address`, or you can use the ZF testnet address `t27eWDgjFYJGVXmzrXeVjnb5J3uXDM9xH9v`
-4. TODO: link to Zebra run instructions
-5. Wait a few hours for Zebra to sync to the testnet tip (on mainnet this takes 2-3 days)
+    * change the `network.network` config to `Testnet`
+    * add your testnet transparent address in `mining.miner_address`, or you can use the ZF testnet address `t27eWDgjFYJGVXmzrXeVjnb5J3uXDM9xH9v`
+3. TODO: link to Zebra run instructions
+4. Wait a few hours for Zebra to sync to the testnet tip (on mainnet this takes 2-3 days)
 
 ## Install and run a mining pool
 
@@ -45,7 +44,7 @@ Run `s-nomp`:
     - TODO: change the pool name to `zcash.json`, does this work?
 2. Optional: update the pool config with your testnet transparent P2PKH address
     - TODO: use the ZF testnet address `t27eWDgjFYJGVXmzrXeVjnb5J3uXDM9xH9v` by default
-4. Run `s-nomp` using `npm start`
+3. Run `s-nomp` using `npm start`
 
 Note: the website will log an RPC error even when it is disabled in the config. This seems like a `s-nomp` bug.
 
