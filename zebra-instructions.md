@@ -24,9 +24,10 @@ Install dependencies:
 3. Install `boost` and `libsodium` development libraries
 
 Install `s-nomp`:
-1. `git clone https://github.com/teor2345/s-nomp`
+1. `git clone https://github.com/ZcashFoundation/s-nomp`
 2. `cd s-nomp`
 3. Use the Zebra configs: `git checkout zebra-mining`
+    * TODO: change the fork in `package.json` to ZcashFoundation
 4. Use node 8.17.0:
 ```sh
 nodenv install 8.17.0
@@ -56,7 +57,7 @@ Install dependencies:
 2. Optional: install static CUDA GPU mining libraries: https://github.com/nicehash/nheqminer#linux
 
 Install miner:
-1. `git clone https://github.com/teor2345/nheqminer`
+1. `git clone https://github.com/ZcashFoundation/nheqminer`
 2. `cd nheqminer`
 3. Use the Zebra fixes: `git checkout zebra-mining`
 4. Follow the build instructions: https://github.com/nicehash/nheqminer#general-instructions
