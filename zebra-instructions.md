@@ -12,6 +12,7 @@ These fixes disable mining pool operator payments and miner payments: they just 
 2. Configure `zebrad.toml`:
     * change the `network.network` config to `Testnet`
     * add your testnet transparent address in `mining.miner_address`, or you can use the ZF testnet address `t27eWDgjFYJGVXmzrXeVjnb5J3uXDM9xH9v`
+    * TODO: link to a working `zebrad.toml`
 3. TODO: link to Zebra run instructions
 4. Wait a few hours for Zebra to sync to the testnet tip (on mainnet this takes 2-3 days)
 
