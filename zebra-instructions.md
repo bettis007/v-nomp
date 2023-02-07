@@ -165,3 +165,6 @@ Run miner:
 # or use your testnet address here - this address will not receive any payments unless it is configued on your node
 ./nheqminer -l 127.0.0.1:1234 -u tmRGc4CD1UyUdbSJmTUzcB6oDqk4qUaHnnh.worker1 -t 1
 ```
+
+Note:
+A typical solution rate for 1-3 cores is 5-10 Sols/s
