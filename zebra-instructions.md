@@ -101,7 +101,7 @@ Install dependencies:
     sudo apt-get install redis
     redis-server
     ```
-2. Install and activate [`nodenv`](https://github.com/nodenv/nodenv#installation) or [`nvm`](https://github.com/nvm-sh/nvm#installing-and-updating)
+2. Install and activate a node version manager (e.g. [`nodenv`](https://github.com/nodenv/nodenv#installation) or [`nvm`](https://github.com/nvm-sh/nvm#installing-and-updating))
 3. Install `boost` and `libsodium` development libraries
     On Ubuntu:
 
