@@ -48,7 +48,7 @@
         "nonce": "^1.0.4",
         "redis": "^2.8.0",
         "request": "^2.88.2",
-        "stratum-pool": "git+https://github.com/teor2345/node-stratum-pool.git#zebra-mining"
+        "stratum-pool": "git+https://github.com/ZcashFoundation/node-stratum-pool.git#zebra-mining"
     },
     "engines": {
         "node": ">=8.11"
