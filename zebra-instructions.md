@@ -167,4 +167,4 @@ Run miner:
 ```
 
 Note:
-A typical solution rate for 1-3 cores is 5-10 Sols/s
+A typical solution rate is 2-4 Sols/s per core
