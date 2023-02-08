@@ -3,16 +3,16 @@
     "coin": "testnet/zec.json",
 
     "address": "tmRGc4CD1UyUdbSJmTUzcB6oDqk4qUaHnnh",
-    "_comment_address": "a transparent address to send coinbase rewards to and to transfer to zAddress. generated using zcash-cli -testnet getnewaddress.",
+    "_comment_address": "This address is currently ignored, but it must be a P2PKH address. generated using zcash-cli -testnet getnewaddress. A transparent address to send coinbase rewards to and to transfer to zAddress.",
 
     "zAddress": "",
     "_comment_zAddress": "a private address used to send coins to tAddress.",
 
     "tAddress": "",
-    "_comment_tAddress": "transparent address used to send payments, make this a different address, otherwise payments will not send",
+    "_comment_tAddress": "Payments are currently disabled. Transparent address used to send payments, make this a different address, otherwise payments will not send",
 
-    "invalidAddress":"tmRGc4CD1UyUdbSJmTUzcB6oDqk4qUaHnnh",
-    "_comment_invalidAddress": "Invalid addresses will be converted to the above",
+    "invalidAddress": "tmRGc4CD1UyUdbSJmTUzcB6oDqk4qUaHnnh",
+    "_comment_invalidAddress": "This address is currently ignored. Invalid addresses will be converted to the above",
 
     "walletInterval": 100000,
     "_comment_walletInterval": "Used to cache coin stats",
@@ -32,7 +32,7 @@
         "maxBlocksPerPayment": 3,
         "daemon": {
             "host": "127.0.0.1",
-            "port": 38232,
+            "port": 18232,
             "_comment_port": "change this to your Zebra port",
             "user": "rpcuser",
             "password": "rpcpassword"
@@ -60,13 +60,13 @@
         }
     },
 
-    "poolId": "main",
+    "poolId": "test",
     "_comment_poolId": "use it for region identification: eu, us, asia or keep default if you have one stratum instance for one coin",
 
     "daemons": [
         {
             "host": "127.0.0.1",
-            "port": 38232,
+            "port": 18232,
             "_comment_port": "change this to your Zebra port",
             "user": "rpcuser",
             "password": "rpcpassword",

@@ -10,17 +10,16 @@ These fixes disable mining pool operator payments and miner payments: they just 
 
 1. [Install Zebra](https://zebra.zfnd.org/user/install.html) - note: Zebra will need to be compiled with the `getblocktemplate-rpcs` feature, e.g.
     ```sh
-    cargo b --release --features "getblocktemplate-rpcs"
+    cargo build --release --features "getblocktemplate-rpcs"
     ```
 2. Configure `zebrad.toml`:
     * change the `network.network` config to `Testnet`
     * add your testnet transparent address in `mining.miner_address`, or you can use the ZF testnet address `t27eWDgjFYJGVXmzrXeVjnb5J3uXDM9xH9v`
     * ensure that there is an `rpc.listen_addr` in the config to enable the RPC server
     
+    Example config:
     <details> 
     
-    Example config:
-
     ```console
     [consensus]
     checkpoint_sync = true
@@ -45,14 +44,14 @@ These fixes disable mining pool operator payments and miner payments: they just 
         'testnet.seeder.zfnd.org:18233',
         'testnet.is.yolo.money:18233',
     ]
-    listen_addr = '0.0.0.0:8233'
+    listen_addr = '0.0.0.0:18233'
     network = 'Testnet'
     peerset_initial_target_size = 25
 
     [rpc]
     debug_force_finished_sync = false
     parallel_cpu_threads = 1
-    listen_addr = '127.0.0.1:3000'
+    listen_addr = '127.0.0.1:18232'
 
     [state]
     cache_dir = '/home/ar/.cache/zebra'
@@ -79,7 +78,7 @@ These fixes disable mining pool operator payments and miner payments: they just 
 3. [Run Zebra](https://zebra.zfnd.org/user/run.html) with the `getblocktemplate-rpcs` feature, e.g.
 
     ```sh
-    cargo run --release --features "getblocktemplate-rpcs"`)
+    cargo run --release --features "getblocktemplate-rpcs"
     ```
 
 4. Wait a few hours for Zebra to sync to the testnet tip (on mainnet this takes 2-3 days)
@@ -103,7 +102,7 @@ Install dependencies:
     ```
 2. Install and activate [`nodenv`](https://github.com/nodenv/nodenv#installation) or [`nvm`](https://github.com/nvm-sh/nvm#installing-and-updating)
 3. Install `boost` and `libsodium` development libraries
-    On Ubuntu:
+   On Ubuntu:
 
     ```sh
     sudo apt install libboost-all-dev
@@ -135,9 +134,7 @@ Install `s-nomp`:
 Run `s-nomp`:
 1. Edit `pool_configs/zclassic.json` so `daemons[0].port` is your Zebra port
     - TODO: change the pool name to `zcash.json`, does this work?
-2. Optional: update the pool config with your testnet transparent P2PKH address
-    - TODO: use the ZF testnet address `t27eWDgjFYJGVXmzrXeVjnb5J3uXDM9xH9v` by default
-3. Run `s-nomp` using `npm start`
+2. Run `s-nomp` using `npm start`
 
 Note: the website will log an RPC error even when it is disabled in the config. This seems like a `s-nomp` bug.
 
@@ -162,6 +159,7 @@ make -j $(nproc)
 Run miner:
 1. Follow the run instructions at: https://github.com/nicehash/nheqminer#run-instructions
 ```sh
-# or use your testnet address here - this address will not receive any payments unless it is configued on your node
+# or use your testnet address here
+# miner and pool payments are disabled, configure your address on your node to get paid
 ./nheqminer -l 127.0.0.1:1234 -u tmRGc4CD1UyUdbSJmTUzcB6oDqk4qUaHnnh.worker1 -t 1
 ```
