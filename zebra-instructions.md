@@ -120,7 +120,7 @@ Install `s-nomp`:
     nvm use 8.17.0
     ```
 
-4. Update dependencies and install:
+5. Update dependencies and install:
     ```sh
     export CXXFLAGS="-std=gnu++17"
     npm update
