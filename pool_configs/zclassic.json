@@ -3,7 +3,7 @@
     "coin": "testnet/zec.json",
 
     "address": "tmRGc4CD1UyUdbSJmTUzcB6oDqk4qUaHnnh",
-    "_comment_address": "This address is currently ignored, but it must be a P2PKH address. generated using zcash-cli -testnet getnewaddress. A transparent address to send coinbase rewards to and to transfer to zAddress."
+    "_comment_address": "This address is currently ignored, but it must be a P2PKH address. generated using zcash-cli -testnet getnewaddress. A transparent address to send coinbase rewards to and to transfer to zAddress.",
 
     "zAddress": "",
     "_comment_zAddress": "a private address used to send coins to tAddress.",
