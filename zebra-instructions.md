@@ -134,9 +134,7 @@ Install `s-nomp`:
 Run `s-nomp`:
 1. Edit `pool_configs/zclassic.json` so `daemons[0].port` is your Zebra port
     - TODO: change the pool name to `zcash.json`, does this work?
-2. Optional: update the pool config with your testnet transparent P2PKH address
-    - TODO: use the ZF testnet address `t27eWDgjFYJGVXmzrXeVjnb5J3uXDM9xH9v` by default
-3. Run `s-nomp` using `npm start`
+2. Run `s-nomp` using `npm start`
 
 Note: the website will log an RPC error even when it is disabled in the config. This seems like a `s-nomp` bug.
 
@@ -161,6 +159,7 @@ make -j $(nproc)
 Run miner:
 1. Follow the run instructions at: https://github.com/nicehash/nheqminer#run-instructions
 ```sh
-# or use your testnet address here - this address will not receive any payments unless it is configued on your node
+# or use your testnet address here
+# miner and pool payments are disabled, configure your address on your node to get paid
 ./nheqminer -l 127.0.0.1:1234 -u tmRGc4CD1UyUdbSJmTUzcB6oDqk4qUaHnnh.worker1 -t 1
 ```
