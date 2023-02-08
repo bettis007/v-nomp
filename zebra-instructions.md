@@ -10,17 +10,16 @@ These fixes disable mining pool operator payments and miner payments: they just 
 
 1. [Install Zebra](https://zebra.zfnd.org/user/install.html) - note: Zebra will need to be compiled with the `getblocktemplate-rpcs` feature, e.g.
     ```sh
-    cargo b --release --features "getblocktemplate-rpcs"
+    cargo build --release --features "getblocktemplate-rpcs"
     ```
 2. Configure `zebrad.toml`:
     * change the `network.network` config to `Testnet`
     * add your testnet transparent address in `mining.miner_address`, or you can use the ZF testnet address `t27eWDgjFYJGVXmzrXeVjnb5J3uXDM9xH9v`
     * ensure that there is an `rpc.listen_addr` in the config to enable the RPC server
     
+    Example config:
     <details> 
     
-    Example config:
-
     ```console
     [consensus]
     checkpoint_sync = true
@@ -45,14 +44,14 @@ These fixes disable mining pool operator payments and miner payments: they just 
         'testnet.seeder.zfnd.org:18233',
         'testnet.is.yolo.money:18233',
     ]
-    listen_addr = '0.0.0.0:8233'
+    listen_addr = '0.0.0.0:18233'
     network = 'Testnet'
     peerset_initial_target_size = 25
 
     [rpc]
     debug_force_finished_sync = false
     parallel_cpu_threads = 1
-    listen_addr = '127.0.0.1:3000'
+    listen_addr = '127.0.0.1:18232'
 
     [state]
     cache_dir = '/home/ar/.cache/zebra'
@@ -79,7 +78,7 @@ These fixes disable mining pool operator payments and miner payments: they just 
 3. [Run Zebra](https://zebra.zfnd.org/user/run.html) with the `getblocktemplate-rpcs` feature, e.g.
 
     ```sh
-    cargo run --release --features "getblocktemplate-rpcs"`)
+    cargo run --release --features "getblocktemplate-rpcs"
     ```
 
 4. Wait a few hours for Zebra to sync to the testnet tip (on mainnet this takes 2-3 days)
@@ -103,7 +102,7 @@ Install dependencies:
     ```
 2. Install and activate [`nodenv`](https://github.com/nodenv/nodenv#installation) or [`nvm`](https://github.com/nvm-sh/nvm#installing-and-updating)
 3. Install `boost` and `libsodium` development libraries
-    On Ubuntu:
+   On Ubuntu:
 
     ```sh
     sudo apt install libboost-all-dev
