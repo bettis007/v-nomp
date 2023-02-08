@@ -108,7 +108,6 @@ Install `s-nomp`:
 1. `git clone https://github.com/ZcashFoundation/s-nomp`
 2. `cd s-nomp`
 3. Use the Zebra fixes: `git checkout zebra-mining`
-    * TODO: change the fork in `package.json` to ZcashFoundation
 4. Use node 8.17.0:
     ```sh
     nodenv install 8.17.0
