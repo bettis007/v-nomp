@@ -100,7 +100,7 @@ Install dependencies:
     sudo apt-get install redis
     redis-server
     ```
-2. Install and activate [`nodenv`](https://github.com/nodenv/nodenv#installation) or [`nvm`](https://github.com/nvm-sh/nvm#installing-and-updating)
+2. Install and activate a node version manager (e.g. [`nodenv`](https://github.com/nodenv/nodenv#installation) or [`nvm`](https://github.com/nvm-sh/nvm#installing-and-updating))
 3. Install `boost` and `libsodium` development libraries
    On Ubuntu:
 
@@ -163,3 +163,6 @@ Run miner:
 # miner and pool payments are disabled, configure your address on your node to get paid
 ./nheqminer -l 127.0.0.1:1234 -u tmRGc4CD1UyUdbSJmTUzcB6oDqk4qUaHnnh.worker1 -t 1
 ```
+
+Note:
+A typical solution rate is 2-4 Sols/s per core
