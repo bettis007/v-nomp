@@ -17,7 +17,7 @@ These fixes disable mining pool operator payments and miner payments: they just 
 
     - change the `network.network` config to `Testnet`
     - add your testnet transparent address in `mining.miner_address`, or you can use the ZF testnet address `t27eWDgjFYJGVXmzrXeVjnb5J3uXDM9xH9v`
-    - ensure that there is an `rpc.listen_addr` in the config to enable the RPC server
+    - ensure that there is an `rpc.listen_addr` in the config to enable the RPC server. For example: `rpc.listen_addr = '127.0.0.1:3000'`.
 
     Example config:
     <details>
