@@ -159,5 +159,9 @@ Run miner:
 ./nheqminer -l 127.0.0.1:1234 -u tmRGc4CD1UyUdbSJmTUzcB6oDqk4qUaHnnh.worker1 -t 1
 ```
 
-Note:
-A typical solution rate is 2-4 Sols/s per core
+Notes:
+* A typical solution rate is 2-4 Sols/s per core
+* `nheqminer` sometimes ignores Control-C, if that happens, you can quit it using:
+    * `killall nheqminer`, or
+    * Control-Z then `kill %1`
+* Running `nheqminer` with a single thread (`-t 1`) can help avoid this issue
