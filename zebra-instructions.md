@@ -14,13 +14,14 @@ These fixes disable mining pool operator payments and miner payments: they just 
     cargo build --release --features "getblocktemplate-rpcs"
     ```
 2. Configure `zebrad.toml`:
-    * change the `network.network` config to `Testnet`
-    * add your testnet transparent address in `mining.miner_address`, or you can use the ZF testnet address `t27eWDgjFYJGVXmzrXeVjnb5J3uXDM9xH9v`
-    * ensure that there is an `rpc.listen_addr` in the config to enable the RPC server
-    
+
+    - change the `network.network` config to `Testnet`
+    - add your testnet transparent address in `mining.miner_address`, or you can use the ZF testnet address `t27eWDgjFYJGVXmzrXeVjnb5J3uXDM9xH9v`
+    - ensure that there is an `rpc.listen_addr` in the config to enable the RPC server
+
     Example config:
-    <details> 
-    
+    <details>
+
     ```console
     [consensus]
     checkpoint_sync = true
@@ -74,7 +75,9 @@ These fixes disable mining pool operator payments and miner payments: they just 
     [mining]
     miner_address = 't27eWDgjFYJGVXmzrXeVjnb5J3uXDM9xH9v'
     ```
+
     </details>
+
 3. [Run Zebra](https://zebra.zfnd.org/user/run.html) with the `getblocktemplate-rpcs` feature:
     ```sh
     cargo run --release --features "getblocktemplate-rpcs"
@@ -84,8 +87,10 @@ These fixes disable mining pool operator payments and miner payments: they just 
 ## Install and run a mining pool
 
 Install dependencies:
+
 1. Install `redis` and run it on the default port: https://redis.io/docs/getting-started/
    On Ubuntu:
+
     ```sh
     sudo apt install lsb-release
     curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
@@ -96,6 +101,7 @@ Install dependencies:
     sudo apt-get install redis
     redis-server
     ```
+
 2. Install and activate a node version manager (e.g. [`nodenv`](https://github.com/nodenv/nodenv#installation) or [`nvm`](https://github.com/nvm-sh/nvm#installing-and-updating))
 3. Install `boost` and `libsodium` development libraries
    On Ubuntu:
@@ -105,15 +111,19 @@ Install dependencies:
     ```
 
 Install `s-nomp`:
+
 1. `git clone https://github.com/ZcashFoundation/s-nomp`
 2. `cd s-nomp`
 3. Use the Zebra fixes: `git checkout zebra-mining`
 4. Use node 8.17.0:
+
     ```sh
     nodenv install 8.17.0
     nodenv local 8.17.0
     ```
-    or 
+
+    or
+
     ```sh
     nvm install 8.17.0
     nvm use 8.17.0
@@ -127,6 +137,7 @@ Install `s-nomp`:
     ```
 
 Run `s-nomp`:
+
 1. Edit `pool_configs/zcash.json` so `daemons[0].port` is your Zebra port
 2. Run `s-nomp` using `npm start`
 
@@ -135,24 +146,29 @@ Note: the website will log an RPC error even when it is disabled in the config. 
 ## Install a CPU or GPU miner
 
 Install dependencies:
+
 1. Install a statically compiled `boost` and `icu`
 2. Optional: install static CUDA GPU mining libraries: https://github.com/nicehash/nheqminer#linux
 
 Install miner:
+
 1. `git clone https://github.com/ZcashFoundation/nheqminer`
 2. `cd nheqminer`
 3. Use the Zebra fixes: `git checkout zebra-mining`
 4. Follow the build instructions: https://github.com/nicehash/nheqminer#general-instructions
+
 ```sh
 mkdir build
 cd build
-# if you have CUDA installed, you can leave USE_CUDA_DJEZO on 
+# if you have CUDA installed, you can leave USE_CUDA_DJEZO on
 cmake -DUSE_CUDA_DJEZO=OFF ..
 make -j $(nproc)
 ```
 
 Run miner:
+
 1. Follow the run instructions at: https://github.com/nicehash/nheqminer#run-instructions
+
 ```sh
 # you can use your own testnet address here
 # miner and pool payments are disabled, configure your address on your node to get paid
@@ -160,8 +176,9 @@ Run miner:
 ```
 
 Notes:
-* A typical solution rate is 2-4 Sols/s per core
-* `nheqminer` sometimes ignores Control-C, if that happens, you can quit it using:
-    * `killall nheqminer`, or
-    * Control-Z then `kill %1`
-* Running `nheqminer` with a single thread (`-t 1`) can help avoid this issue
+
+-   A typical solution rate is 2-4 Sols/s per core
+-   `nheqminer` sometimes ignores Control-C, if that happens, you can quit it using:
+    -   `killall nheqminer`, or
+    -   Control-Z then `kill %1`
+-   Running `nheqminer` with a single thread (`-t 1`) can help avoid this issue
