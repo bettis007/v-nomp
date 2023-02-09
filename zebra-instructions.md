@@ -84,12 +84,60 @@ These fixes disable mining pool operator payments and miner payments: they just 
     ```
 4. Wait a few hours for Zebra to sync to the testnet tip (on mainnet this takes 2-3 days)
 
-## Install and run a mining pool
+## Install `s-nomp`
 
-Install dependencies:
+### Arch-specific instructions
+
+#### Install dependencies:
+
+1. Install [`redis`](https://redis.io/docs/getting-started/) and run it on the default port:
+
+    ```sh
+    sudo pacman -S redis
+    sudo systemctl start redis
+    ```
+
+2. Install and activate [`nvm`](https://github.com/nvm-sh/nvm#installing-and-updating):
+
+    ```sh
+    sudo pacman -S nvm
+    unset npm_config_prefix
+    source /usr/share/nvm/init-nvm.sh
+    ```
+
+3. Install `boost` and `libsodium` development libraries:
+
+    ```sh
+    sudo pacman -S boost libsodium
+    ```
+
+#### Install `s-nomp`:
+
+1. `git clone https://github.com/ZcashFoundation/s-nomp && cd s-nomp`
+
+2. Use the Zebra configs: `git checkout zebra-mining`
+
+    - TODO: change the fork in `package.json` to ZcashFoundation
+
+3. Use node 8.11.0:
+
+    ```sh
+    nvm install 8.11.0
+    nvm use 8.11.0
+    ```
+
+4. Update dependencies and install:
+
+    ```sh
+    npm update
+    npm install
+    ```
+
+### Ubuntu-specific and general instructions
+
+#### Install dependencies:
 
 1. Install `redis` and run it on the default port: https://redis.io/docs/getting-started/
-   On Ubuntu:
 
     ```sh
     sudo apt install lsb-release
@@ -104,13 +152,13 @@ Install dependencies:
 
 2. Install and activate a node version manager (e.g. [`nodenv`](https://github.com/nodenv/nodenv#installation) or [`nvm`](https://github.com/nvm-sh/nvm#installing-and-updating))
 3. Install `boost` and `libsodium` development libraries
-   On Ubuntu:
+
     ```sh
     sudo apt install libboost-all-dev
     sudo apt install libsodium-dev
     ```
 
-Install `s-nomp`:
+#### Install `s-nomp`:
 
 1. `git clone https://github.com/ZcashFoundation/s-nomp`
 2. `cd s-nomp`
@@ -130,13 +178,14 @@ Install `s-nomp`:
     ```
 
 5. Update dependencies and install:
+
     ```sh
     export CXXFLAGS="-std=gnu++17"
     npm update
     npm install
     ```
 
-Run `s-nomp`:
+## Run `s-nomp`:
 
 1. Edit `pool_configs/zcash.json` so `daemons[0].port` is your Zebra port
 2. Run `s-nomp` using `npm start`
