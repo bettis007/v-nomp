@@ -10,9 +10,11 @@ These fixes disable mining pool operator payments and miner payments: they just 
 
 1. [Build Zebra](https://github.com/ZcashFoundation/zebra#build-instructions)
    Zebra will need to be compiled with the `getblocktemplate-rpcs` feature:
+
     ```sh
     cargo build --release --features "getblocktemplate-rpcs"
     ```
+
 2. Configure `zebrad.toml`:
 
     - change the `network.network` config to `Testnet`
@@ -79,9 +81,11 @@ These fixes disable mining pool operator payments and miner payments: they just 
     </details>
 
 3. [Run Zebra](https://zebra.zfnd.org/user/run.html) with the `getblocktemplate-rpcs` feature:
+
     ```sh
     cargo run --release --features "getblocktemplate-rpcs"
     ```
+
 4. Wait a few hours for Zebra to sync to the testnet tip (on mainnet this takes 2-3 days)
 
 ## Install `s-nomp`
