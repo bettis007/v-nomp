@@ -19,7 +19,7 @@ These fixes disable mining pool operator payments and miner payments: they just 
 
     - change the `network.network` config to `Testnet`
     - add your testnet transparent address in `mining.miner_address`, or you can use the ZF testnet address `t27eWDgjFYJGVXmzrXeVjnb5J3uXDM9xH9v`
-    - ensure that there is an `rpc.listen_addr` in the config to enable the RPC server. For example: `rpc.listen_addr = '127.0.0.1:3000'`.
+    - ensure that there is an `rpc.listen_addr` in the config to enable the RPC server. For example: `rpc.listen_addr = '127.0.0.1:18232'`.
 
     Example config:
     <details>
@@ -121,7 +121,6 @@ These fixes disable mining pool operator payments and miner payments: they just 
 
 2. Use the Zebra configs: `git checkout zebra-mining`
 
-    - TODO: change the fork in `package.json` to ZcashFoundation
 
 3. Use node 8.11.0:
 
@@ -137,7 +136,7 @@ These fixes disable mining pool operator payments and miner payments: they just 
     npm install
     ```
 
-### Ubuntu-specific and general instructions
+### General instructions with Debian/Ubuntu examples
 
 #### Install dependencies:
 
