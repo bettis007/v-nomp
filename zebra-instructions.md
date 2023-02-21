@@ -193,18 +193,18 @@ Note: the website will log an RPC error even when it is disabled in the config. 
 
 #### Install dependencies
 
+<details><summary>General instructions</summary>
+
+1. Install a statically compiled `boost` and `icu`.
+2. Install `cmake`.
+
+</details>
+
 <details><summary>Arch-specific instructions</summary>
 
 ```sh
 sudo pacman -S cmake
 ```
-
-</details>
-
-<details><summary>General instructions</summary>
-
-1. Install a statically compiled `boost` and `icu`.
-2. Install `cmake`.
 
 </details>
 
