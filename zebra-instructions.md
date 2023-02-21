@@ -83,7 +83,7 @@ These fixes disable mining pool operator payments and miner payments: they just 
 
 <details><summary>General instructions with Debian/Ubuntu examples</summary>
     
-#### Install dependencies:
+#### Install dependencies
 
 1. Install `redis` and run it on the default port: <https://redis.io/docs/getting-started/>
 
@@ -106,7 +106,7 @@ These fixes disable mining pool operator payments and miner payments: they just 
     sudo apt install libsodium-dev
     ```
 
-#### Install `s-nomp`:
+#### Install `s-nomp`
 
 1. `git clone https://github.com/ZcashFoundation/s-nomp`
 2. `cd s-nomp`
@@ -137,7 +137,7 @@ These fixes disable mining pool operator payments and miner payments: they just 
 
 <details><summary>Arch-specific instructions</summary>
     
-#### Install dependencies:
+#### Install dependencies
 
 1. Install [`redis`](https://redis.io/docs/getting-started/) and run it on the default port:
 
@@ -160,7 +160,7 @@ These fixes disable mining pool operator payments and miner payments: they just 
     sudo pacman -S boost libsodium
     ```
 
-#### Install `s-nomp`:
+#### Install `s-nomp`
 
 1. `git clone https://github.com/ZcashFoundation/s-nomp && cd s-nomp`
 
@@ -182,7 +182,7 @@ These fixes disable mining pool operator payments and miner payments: they just 
 
 </details>
 
-## Run `s-nomp`:
+## Run `s-nomp`
 
 1. Edit `pool_configs/zcash.json` so `daemons[0].port` is your Zebra port
 2. Run `s-nomp` using `npm start`
@@ -191,7 +191,7 @@ Note: the website will log an RPC error even when it is disabled in the config. 
 
 ## Install a CPU or GPU miner
 
-#### Install dependencies:
+#### Install dependencies
 
 <details><summary>Arch-specific instructions</summary>
 
@@ -208,7 +208,7 @@ sudo pacman -S cmake
 
 </details>
 
-#### Install `nheqminer`:
+#### Install `nheqminer`
 
 We're going to install `nheqminer`, which supports multiple CPU and GPU Equihash
 solvers. We're using a CPU solver named `tromp` in the following instructions
@@ -228,7 +228,7 @@ cmake -DUSE_CUDA_DJEZO=OFF -DUSE_CPU_XENONCAT=OFF -DUSE_CPU_TROMP=ON ..
 make -j $(nproc)
 ```
 
-## Run miner:
+## Run miner
 
 1. Follow the run instructions at: <https://github.com/nicehash/nheqminer#run-instructions>
 
