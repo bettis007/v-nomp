@@ -211,8 +211,8 @@ sudo pacman -S cmake
 #### Install `nheqminer`
 
 We're going to install `nheqminer`, which supports multiple CPU and GPU Equihash
-solvers. We're using a CPU solver named `tromp` in the following instructions
-since that one is the easiest to install.
+solvers, namely `djezo`, `xenoncat`, and `tromp`. We're using `tromp` on a CPU
+in the following instructions since it is the easiest to install and use.
 
 1. `git clone https://github.com/ZcashFoundation/nheqminer`
 2. `cd nheqminer`
@@ -223,7 +223,7 @@ since that one is the easiest to install.
 ```sh
 mkdir build
 cd build
-# Turn off CUDA and xenoncat, which are enabled by default, and turn on tromp instead.
+# Turn off `djezo` and `xenoncat`, which are enabled by default, and turn on `tromp` instead.
 cmake -DUSE_CUDA_DJEZO=OFF -DUSE_CPU_XENONCAT=OFF -DUSE_CPU_TROMP=ON ..
 make -j $(nproc)
 ```
