@@ -203,7 +203,7 @@ Note: the website will log an RPC error even when it is disabled in the config. 
 <details><summary>Arch-specific instructions</summary>
 
 ```sh
-sudo pacman -S cmake
+sudo pacman -S cmake boost icu
 ```
 
 </details>
