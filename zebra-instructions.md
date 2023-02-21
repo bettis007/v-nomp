@@ -85,7 +85,7 @@ These fixes disable mining pool operator payments and miner payments: they just 
     
 #### Install dependencies:
 
-1. Install `redis` and run it on the default port: https://redis.io/docs/getting-started/
+1. Install `redis` and run it on the default port: <https://redis.io/docs/getting-started/>
 
     ```sh
     sudo apt install lsb-release
@@ -230,7 +230,7 @@ make -j $(nproc)
 
 ## Run miner:
 
-1. Follow the run instructions at: https://github.com/nicehash/nheqminer#run-instructions
+1. Follow the run instructions at: <https://github.com/nicehash/nheqminer#run-instructions>
 
 ```sh
 # you can use your own testnet address here
