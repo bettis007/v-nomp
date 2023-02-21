@@ -191,7 +191,31 @@ Note: the website will log an RPC error even when it is disabled in the config. 
 
 ## Install a CPU or GPU miner
 
-### Arch-specific instructions
+<details><summary>General instructions</summary>
+
+#### Install dependencies:
+
+1. Install a statically compiled `boost` and `icu`
+2. Optional: install static CUDA GPU mining libraries: https://github.com/nicehash/nheqminer#linux
+
+#### Install `nheqminer`:
+
+1. `git clone https://github.com/ZcashFoundation/nheqminer`
+2. `cd nheqminer`
+3. Use the Zebra fixes: `git checkout zebra-mining`
+4. Follow the build instructions: https://github.com/nicehash/nheqminer#general-instructions
+
+```sh
+mkdir build
+cd build
+# if you have CUDA installed, you can leave USE_CUDA_DJEZO on
+cmake -DUSE_CUDA_DJEZO=OFF ..
+make -j $(nproc)
+```
+
+</details>
+
+<details><summary>Arch-specific instructions</summary>
 
 We're going to install `nheqminer`, which supports various CPU and GPU Equihash
 solvers. We're going to focus on a CPU solver called `tromp` because that one is
@@ -216,27 +240,7 @@ cmake -DUSE_CUDA_DJEZO=OFF -DUSE_CPU_XENONCAT=OFF -DUSE_CPU_TROMP=ON ..
 make -j $(nproc)
 ```
 
-### General instructions
-
-#### Install dependencies:
-
-1. Install a statically compiled `boost` and `icu`
-2. Optional: install static CUDA GPU mining libraries: https://github.com/nicehash/nheqminer#linux
-
-#### Install `nheqminer`:
-
-1. `git clone https://github.com/ZcashFoundation/nheqminer`
-2. `cd nheqminer`
-3. Use the Zebra fixes: `git checkout zebra-mining`
-4. Follow the build instructions: https://github.com/nicehash/nheqminer#general-instructions
-
-```sh
-mkdir build
-cd build
-# if you have CUDA installed, you can leave USE_CUDA_DJEZO on
-cmake -DUSE_CUDA_DJEZO=OFF ..
-make -j $(nproc)
-```
+</details>
 
 ## Run miner:
 
