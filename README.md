@@ -1,3 +1,7 @@
+### _**THIS FORK ONLY MAINTAINED OR SUPPORTED FOR MINING WITH ZEBRA ON TESTNET**_
+
+This repository is not maintained or supported for mining beyond the documentation we have for mining on testnet.
+
 # s-nomp: Some New Open Mining Portal
 
 > *NOTE*:
