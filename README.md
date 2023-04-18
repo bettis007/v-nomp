@@ -1,3 +1,9 @@
+### _**THIS FORK ONLY MAINTAINED OR SUPPORTED FOR MINING WITH ZEBRA ON TESTNET**_
+
+This repository is not maintained or supported for mining.
+
+If you want to experiment with mining, use [Zebra's guide to mining on testnet](https://github.com/ZcashFoundation/zebra/blob/main/book/src/user/mining-testnet-s-nomp.md).
+
 # s-nomp: Some New Open Mining Portal
 
 > *NOTE*:
