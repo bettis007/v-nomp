@@ -6,9 +6,6 @@ If you want to experiment with mining, use [Zebra's guide to mining on testnet](
 
 # s-nomp: Some New Open Mining Portal
 
-> *NOTE*:
-> We're working on putting together an "official" s-nomp which can be supported by many coins and pools instead of so many running their own flavors. More to come!
-
 This is a Equihash mining pool based off Node Open Mining Portal.
 
 # IMPORTANT
