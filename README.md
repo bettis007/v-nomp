@@ -136,7 +136,7 @@ exportdir=/home/verus/export
 spendzeroconfchange=0
 
 # blocknotify
-blocknotify=/home/cbettis007/v-nomp/scripts/blocknotify 127.0.0.1:17117 verus %s
+blocknotify=/home/pool/v-nomp/scripts/blocknotify 127.0.0.1:17117 verus %s
 
 # seednodes
 seednode=seed.verus.io
@@ -257,7 +257,7 @@ Now, install `NodeJS v8` via `nvm.sh` as well as `redis-commander` and [PM2](htt
 **NOTE:** PM2 v5.0.0 or higher won't work. You _will_ have to use PM2 v4.5.6!
 
 ```bash
-nvm install 8
+nvm install 10
 npm install -g redis-commander pm2@4.5.6
 ```
 
@@ -265,13 +265,13 @@ Because `nvm.sh` comes without it, we need to add one symlink into its bindir fo
 
 ```bash
 which node
-/home/pool/.nvm/versions/node/v8.16.2/bin/node
+/home/pool/.nvm/versions/node/v10.24.1/bin/node
 ```
 
 Change to the resulting directory and create a symlink like below.
 
 ```bash
-cd /home/pool/.nvm/versions/node/v8.16.2/bin
+cd /home/pool/.nvm/versions/node/v10.24.1/bin
 ln -s node nodejs
 exit
 ```
