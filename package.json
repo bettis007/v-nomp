@@ -33,7 +33,7 @@
         "url": "https://github.com/s-nomp/s-nomp.git"
     },
     "dependencies": {
-        "async": "^2.6.4",
+        "async": "3.2.6",
         "bignum": "^0.13.1",
         "body-parser": "^1.20.2",
         "colors": "^1.4.0",
@@ -45,10 +45,11 @@
         "mysql": "^2.18.1",
         "node-json-minify": "^1.0.0",
         "node-watch": "^0.5.9",
+        "verushash": "git+https://github.com/VerusCoin/verushash-node.git",
         "nonce": "^1.0.4",
         "redis": "^2.8.0",
         "request": "^2.88.2",
-        "stratum-pool": "git+https://github.com/upbqdn/node-stratum-pool.git"
+        "stratum-pool": "git+https://github.com/bettis007/verus-stratum-pool.git"
     },
     "engines": {
         "node": ">=8.11"
