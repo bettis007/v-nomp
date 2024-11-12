@@ -1,4 +1,4 @@
-# S-NOMP for Verus
+# V-NOMP for Verus
 
 Operating a mining pool requires you to know about systems administration, IT security, databases, software development, coin daemons and other more or less related stuff. Running a production pool can literally be more work than a full-time job.
 
