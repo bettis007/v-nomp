@@ -8,7 +8,7 @@ A VPS with 4GB of RAM, anything above 20GB **SSD** storage and 1 CPU core which 
 
 ```bash
 lscpu|grep -i "model name"
-Model name:            QEMU Virtual CPU version 2.5+
+Model name:            AMD EPYC 9B14
 ```
 
 Basically, anything in there that is not a real CPU name _may_ cause NodeJS to behave funny despite the `Virtual CPU` having all necessary CPU flags. Be aware and ready to switch servers and/or hosting companies if need be. Start following the guide while logged in as `root`.
@@ -16,7 +16,7 @@ Basically, anything in there that is not a real CPU name _may_ cause NodeJS to b
 
 ## Operating System
 
-This guide is tailored to and tested on `Debian 10 "Buster"` but should probably also work on Debian-ish derivatives like `Devuan` or `Ubuntu` and others. Before starting, please install the latest updates and prerequisites.
+This guide is tailored to and tested on `Ubuntu 20.04` but should probably also work on Debian-ish derivatives. Before starting, please install the latest updates and prerequisites.
 
 ```bash
 apt update
@@ -33,10 +33,10 @@ useradd -m -d /home/verus -s /bin/bash verus
 su - verus
 ```
 
-DDownload the **latest** (`v0.7.2-6` used in this example) Verus binaries from the [GitHub Releases Page](https://github.com/VerusCoin/VerusCoin/releases). Unpack, move them into place and clean up like so:
+DDownload the **latest** (`v1.2.5-3` used in this example) Verus binaries from the [GitHub Releases Page](https://github.com/VerusCoin/VerusCoin/releases). Unpack, move them into place and clean up like so:
 
 ```bash
-wget [https://github.com/VerusCoin/VerusCoin/releases/download/v1.2.5-3/Verus-CLI-Linux-v1.2.5-3-x86_64.tgz]
+wget https://github.com/VerusCoin/VerusCoin/releases/download/v1.2.5-3/Verus-CLI-Linux-v1.2.5-3-x86_64.tgz
 tar xf Verus-CLI-Linux-v1.2.5-3-x86_64.tgz; tar xf Verus-CLI-Linux-v1.2.5-3-x86_64.tgz
 mv verus-cli/{fetch-params,fetch-bootstrap,verusd,verus} ~/bin
 rm -rf verus-cli Verus-CLI-Linux-v1.2.5-3-x86_64.t*
@@ -252,8 +252,7 @@ exit
 su - pool
 ```
 
-Now, install `NodeJS v8` via `nvm.sh` as well as `redis-commander` and [PM2](http://pm2.keymetrics.io) via `npm`.   
-**NOTE:** Node v10 or higher won't work. You _will_ have to use Node v8!
+Now, install `NodeJS v10` via `nvm.sh` as well as `redis-commander` and [PM2](http://pm2.keymetrics.io) via `npm`.
 **NOTE:** PM2 v5.0.0 or higher won't work. You _will_ have to use PM2 v4.5.6!
 
 ```bash
@@ -276,21 +275,21 @@ ln -s node nodejs
 exit
 ```
 
-## S-NOMP
+## Z-NOMP
 
 Make sure you're in the `pool` account and clone the S-NOMP from our main repository:
 
 ```bash
 su - pool
-git clone https://github.com/veruscoin/s-nomp
-cd s-nomp
+git clone https://github.com/bettis007/v-nomp
+cd v-nomp
 ```
 
 Next, install all dependencies using `npm`:
 
 ```bash
-npm update
-npm install
+npm update --verbose
+npm i --verbose
 ```
 
 ## Configuration Instructions
@@ -311,12 +310,12 @@ verus dumpprivkey <Verus T-address 2>
 
 **Save the data in an offline location, not on your computer!**
 
-Now, switch to the `pool` account. First, copy `/home/pool/s-nomp/config_example.json` to `/home/pool/s-nomp/config.json`. Edit it to reflect the changes listed below.
+Now, switch to the `pool` account. First, copy `/home/pool/v-nomp/config_example.json` to `/home/pool/v-nomp/config.json`. Edit it to reflect the changes listed below.
 
   * Set both `host` and `stratumHost` to the external IP or DNS name of your server.
   * Enable UNIX socket connections by setting `"socket": "/var/run/redis/redis.sock",`, `"password": ""` and removing the rest of the lines in the `"redis"` section
 
-Now create a pool config. Copy `/home/pool/s-nomp/pool_configs/examples/vrsc.json` to `/home/pool/s-nomp/pool_configs/vrsc.json`. Edit it to reflect the changes listed below.
+Now edit the pool config. Edit `/home/pool/v-nomp/pool_configs/vrsc.json` to reflect the changes listed below.
 
  * Set `enabled` to `true`.
  * Set `coin` to `vrsc.json`.
@@ -334,7 +333,7 @@ Now create a pool config. Copy `/home/pool/s-nomp/pool_configs/examples/vrsc.jso
  * Set `minDiff` to `16384`.
  * Set `maxDiff` to `2147483648`
 
-Edit the file `~/s-nomp/coins/vrsc.json` to reflect the following setting:
+Edit the file `~/v-nomp/coins/vrsc.json` to reflect the following setting:
  * make sure `"requireShielding":false,` is set.
 
 We are almost done now. Using the command mentioned at the beginning of this document, check if the blockchain has finished syncing. If not, wait for it to complete before continuing.
@@ -349,13 +348,13 @@ To determine the location of your `node` binary, switch to user `pool`, do this 
 
 ```bash
 which node
-/home/pool/.nvm/versions/node/v8.16.1/bin/node
+/home/pool/.nvm/versions/node/v10.24.1/bin/node
 ```
 
 Switch back to user `verus` and edit `~/.komodo/VRSC/VRSC.conf` to enable the blocknotify command as seen below, using the location you just got from using `which node` before:
 
 ```conf
-blocknotify=/home/pool/.nvm/versions/node/v8.16.1/bin/node /home/pool/s-nomp/scripts/cli.js blocknotify verus %s
+blocknotify=/home/pool/.nvm/versions/node/v10.24.1/bin/node /home/pool/v-nomp/scripts/cli.js blocknotify verus %s
 ```
 
 Restart the wallet using the command already listed above. If you are not using `STDOUT`/`STDERR`-redirection, you will see errors about blocknotify. These are expected, because the pool is not running yet and thus the blocknotify script cannot complete successfully.
@@ -364,7 +363,7 @@ Restart the wallet using the command already listed above. If you are not using 
 Switch to the `pool` user. Then start the pool using `pm2`:
 
 ```bash
-cd ~/s-nomp
+cd ~/v-nomp
 pm2 start init.js --name veruspool
 ```
 
@@ -372,12 +371,12 @@ Use `pm2 log` to check for S-NOMP startup errors.
 
 If you completed all steps correctly, the web dashboard on your pool can be reached via port `8080` on the external IP or the DNS name of your server.
 
-### S-Nomp Autostart
+### V-Nomp Autostart
 
 Edit your crontab using `crontab -e` and shove in this line at the bottom:
 
 ```crontab
-@reboot /bin/sleep 300 && cd /home/pool/s-nomp && /usr/bin/pm2 start init.js --name veruspool
+@reboot /bin/sleep 300 && cd /home/pool/z-nomp && /usr/bin/pm2 start init.js --name veruspool
 ```
 
 **HINT:** if you can't stand `vi`, do `EDITOR=nano crontab -e` ;-)
@@ -514,7 +513,7 @@ Restart `nginx`:
 /etc/init.d/nginx restart
 ```
 
-Switch to the `pool` user, edit `/home/pool/s-nomp/config.json` to bind the web interface to `127.0.0.1:8080`:
+Switch to the `pool` user, edit `/home/pool/v-nomp/config.json` to bind the web interface to `127.0.0.1:8080`:
 
 ```conf
 [...]
